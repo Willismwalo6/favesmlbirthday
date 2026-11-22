@@ -1,0 +1,272 @@
+/* ==========================================================================
+   Mascots — Heart, Bunny, Strawberry and Cupid
+   ========================================================================== */
+
+.mascot {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mascot[role='button'] {
+  cursor: pointer;
+}
+
+.mascot__inner {
+  width: 100%;
+  height: 100%;
+}
+
+.mascot__svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.mascot [class*='__eyes'] {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mascotBlink 6s infinite;
+}
+
+.mood--think .hb__pupils {
+  transform: translateY(-2px);
+}
+
+/* -------------------------------- heart ---------------------------------- */
+
+.mascot--heart .hb__body {
+  transform-box: fill-box;
+  transform-origin: center 88%;
+  animation: heartBreathe 4s ease-in-out infinite;
+}
+
+.mood--cheer .hb__body {
+  animation-duration: 1.4s;
+}
+
+.mood--kiss .hb__body {
+  animation: heartSquish 0.9s ease-in-out infinite alternate;
+}
+
+.mood--wave .hb__arm--r {
+  transform-box: fill-box;
+  transform-origin: left top;
+  animation: waveArm 0.6s ease-in-out infinite alternate;
+}
+
+.mood--cheer .hb__arm--l {
+  transform-box: fill-box;
+  transform-origin: right top;
+  animation: cheerArm 0.7s ease-in-out infinite alternate;
+}
+
+.mood--cheer .hb__arm--r {
+  transform-box: fill-box;
+  transform-origin: left top;
+  animation: cheerArm 0.7s ease-in-out infinite alternate-reverse;
+}
+
+.mascot__kisses {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  color: #d4789a;
+  font-size: 1.1rem;
+  display: block;
+}
+
+.mascot__kisses span {
+  position: absolute;
+  left: 48%;
+  top: 42%;
+  text-shadow: 0 2px 6px rgba(113, 54, 79, 0.2);
+}
+
+.mascot__thought {
+  position: absolute;
+  right: 2%;
+  top: 6%;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: flex-end;
+}
+
+.mascot__thought span {
+  display: block;
+  border-radius: 50%;
+  background: rgba(255, 253, 250, 0.92);
+  border: 1px solid rgba(201, 120, 150, 0.35);
+  animation: thoughtFloat 2.4s ease-in-out infinite;
+}
+
+.mascot__thought span:nth-child(1) {
+  width: 5px;
+  height: 5px;
+  animation-delay: 0s;
+}
+
+.mascot__thought span:nth-child(2) {
+  width: 7px;
+  height: 7px;
+  animation-delay: 0.2s;
+}
+
+.mascot__thought span:nth-child(3) {
+  width: 10px;
+  height: 10px;
+  animation-delay: 0.4s;
+}
+
+/* -------------------------------- bunny ---------------------------------- */
+
+.mascot--bunny .bun__ear {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: earSway 3.6s ease-in-out infinite;
+}
+
+.mascot--bunny .bun__ear--r {
+  animation-delay: -1.4s;
+}
+
+.mood--peek .bun__ear--l {
+  animation: earWiggle 0.8s ease-in-out infinite alternate;
+}
+
+.mood--cheer .bun__ear--l,
+.mood--cheer .bun__ear--r {
+  animation: earWiggle 0.5s ease-in-out infinite alternate;
+}
+
+.mood--cheer .bun__ear--r {
+  animation-direction: alternate-reverse;
+}
+
+.mascot--bunny .bun__paws {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pawTap 4.5s ease-in-out infinite;
+}
+
+/* ----------------------------- strawberry -------------------------------- */
+
+.mascot--strawberry .sb__leaf {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: leafSway 5s ease-in-out infinite;
+}
+
+.mascot--strawberry .sb__body {
+  transform-box: fill-box;
+  transform-origin: center 78%;
+  animation: berryBreathe 4.6s ease-in-out infinite;
+}
+
+.mood--encourage .sb__body {
+  animation-duration: 1.8s;
+}
+
+.mood--cheer .sb__leaf {
+  animation: leafSway 0.9s ease-in-out infinite alternate;
+}
+
+/* -------------------------------- cupid ---------------------------------- */
+
+.mascot--cupid .cb__wing--l {
+  transform-box: fill-box;
+  transform-origin: right center;
+  animation: wingFlap 1.5s ease-in-out infinite;
+}
+
+.mascot--cupid .cb__wing--r {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: wingFlap 1.5s ease-in-out infinite reverse;
+}
+
+.mood--cheer .cb__wing--l,
+.mood--cheer .cb__wing--r {
+  animation-duration: 0.6s;
+}
+
+.mascot--cupid .cb__envelope {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: letterBob 3s ease-in-out infinite;
+}
+
+.mood--deliver .cb__envelope {
+  animation-duration: 1.2s;
+}
+
+/* ------------------------------- keyframes -------------------------------- */
+
+@keyframes mascotBlink {
+  0%, 91%, 97%, 100% { transform: scaleY(1); }
+  94% { transform: scaleY(0.08); }
+}
+
+@keyframes heartBreathe {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.03) translateY(-2px); }
+}
+
+@keyframes heartSquish {
+  from { transform: scale(1, 1); }
+  to { transform: scale(1.05, 0.96); }
+}
+
+@keyframes waveArm {
+  from { transform: rotate(-8deg); }
+  to { transform: rotate(-34deg); }
+}
+
+@keyframes cheerArm {
+  from { transform: rotate(-6deg); }
+  to { transform: rotate(-40deg); }
+}
+
+@keyframes thoughtFloat {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(-4px); opacity: 1; }
+}
+
+@keyframes earSway {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50% { transform: rotate(1.5deg); }
+}
+
+@keyframes earWiggle {
+  from { transform: rotate(-7deg); }
+  to { transform: rotate(6deg); }
+}
+
+@keyframes pawTap {
+  0%, 88%, 100% { transform: translateY(0); }
+  94% { transform: translateY(-2px); }
+}
+
+@keyframes leafSway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2.5deg); }
+}
+
+@keyframes berryBreathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.025) translateY(-1px); }
+}
+
+@keyframes wingFlap {
+  0%, 100% { transform: rotate(-13deg) scaleX(0.94); }
+  50% { transform: rotate(11deg) scaleX(1.04); }
+}
+
+@keyframes letterBob {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-2px) rotate(2deg); }
+}
