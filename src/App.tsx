@@ -6,6 +6,7 @@ import PhotoStudio from './components/PhotoStudio';
 import HeartCompanion from './components/HeartCompanion';
 import ScrollProgress from './components/ScrollProgress';
 import { LegalLayer, openLegal } from './components/Legal';
+import FooterSurprise from './components/FooterSurprise';
 import Welcome from './sections/Welcome';
 import Countdown from './sections/Countdown';
 import BirthdayHero from './sections/BirthdayHero';
@@ -64,6 +65,7 @@ function Experience() {
         <p className="footer__small">
           Eight chapters · four little friends · thirty-eight photographs · one very loved girl
         </p>
+        <FooterSurprise />
         <nav className="footer__legal" aria-label="Legal">
           <button type="button" onClick={() => openLegal('cookies')}>Cookie Policy</button>
           <span aria-hidden="true">·</span>
